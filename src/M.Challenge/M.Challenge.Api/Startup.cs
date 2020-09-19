@@ -1,4 +1,5 @@
 using Autofac;
+using M.Challenge.Api.Infrastructure.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -33,17 +34,16 @@ namespace M.Challenge.Api
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseHttpsRedirection();
+            else
+            {
+                app.UseHsts();
+                app.UseHttpsRedirection();
+            }
 
             app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseHttpLoggingMiddleware();
+            app.UseUnexpectedErrorHandlingMiddleware();
+            app.UseEndpoints(endpoints => endpoints.MapControllers());
         }
     }
 }
