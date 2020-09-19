@@ -1,11 +1,12 @@
 ﻿using Serilog;
 using System;
 using System.Diagnostics.CodeAnalysis;
+using ILogger = M.Challenge.Domain.Logger.ILogger;
 
 namespace M.Challenge.Infrastructure.Logger
 {
     [ExcludeFromCodeCoverage]
-    public class Logger
+    public class Logger : ILogger
     {
         public void Info(string message, params object[] propertyValues)
         {
