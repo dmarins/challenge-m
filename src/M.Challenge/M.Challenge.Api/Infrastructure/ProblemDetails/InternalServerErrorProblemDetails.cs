@@ -1,7 +1,9 @@
-﻿using System.Net;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Net;
 
 namespace M.Challenge.Api.Infrastructure.ProblemDetails
 {
+    [ExcludeFromCodeCoverage]
     public class InternalServerErrorProblemDetails : Microsoft.AspNetCore.Mvc.ProblemDetails
     {
         public InternalServerErrorProblemDetails(string details = null)

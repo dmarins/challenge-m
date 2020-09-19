@@ -28,7 +28,7 @@ namespace M.Challenge.UnitTests.Api.Infrastructure.CompositionRoot
         }
 
         [Fact]
-        public void ForILogger_InstanceShouldBeASingleton()
+        public void ForILogger_ShouldBeASingleInstance()
         {
             var instance1 = _fixture
                 .Container

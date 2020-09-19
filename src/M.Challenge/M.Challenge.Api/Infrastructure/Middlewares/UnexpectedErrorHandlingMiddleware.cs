@@ -1,4 +1,5 @@
 ﻿using M.Challenge.Api.Infrastructure.ProblemDetails;
+using M.Challenge.Domain.Constants;
 using M.Challenge.Domain.Logger;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -37,7 +38,7 @@ namespace M.Challenge.Api.Infrastructure.Middlewares
         private static Task HandleException(HttpContext context, Exception ex)
         {
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-            context.Response.ContentType = "application/problem+json";
+            context.Response.ContentType = ProblemDetailsConstants.ContentType;
 
             var result = JsonConvert
                 .SerializeObject(

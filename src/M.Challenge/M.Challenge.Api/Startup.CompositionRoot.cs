@@ -14,6 +14,7 @@ namespace M.Challenge.Api
             containerBuilder.Populate(services);
             containerBuilder.Register(ctx => Configuration);
             containerBuilder.RegisterModule(new LoggerModule());
+            containerBuilder.RegisterModule(new AuthModule());
 
             Container = containerBuilder.Build();
 

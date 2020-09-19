@@ -23,7 +23,8 @@ namespace M.Challenge.Api
 
         public virtual IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            ConfigureAuthentication(services);
+            ConfigureAuthorization(services);
 
             return RegisterDependencies(services);
         }
@@ -41,6 +42,8 @@ namespace M.Challenge.Api
             }
 
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseHttpLoggingMiddleware();
             app.UseUnexpectedErrorHandlingMiddleware();
             app.UseEndpoints(endpoints => endpoints.MapControllers());
