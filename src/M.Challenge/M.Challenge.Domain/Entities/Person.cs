@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace M.Challenge.Domain.Entities
 {
@@ -10,39 +9,34 @@ namespace M.Challenge.Domain.Entities
         public string Name { get; set; }
         public string LastName { get; set; }
         public string Ethnicity { get; set; }
-        public string Filiation { get; set; }
-        public IEnumerable<Person> Children { get; set; }
+        public string Genre { get; set; }
+        public ICollection<Person> Filiation { get; set; }
+        public ICollection<Person> Children { get; set; }
         public string EducationLevel { get; set; }
 
         public Person(string name,
             string lastName,
             string ethnicity,
-            string filiation,
+            string genre,
             string educationLevel)
         {
             Name = name ?? throw new ArgumentNullException(nameof(name));
             LastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
             Ethnicity = ethnicity ?? throw new ArgumentNullException(nameof(ethnicity));
-            Filiation = filiation ?? throw new ArgumentNullException(nameof(filiation));
+            Genre = genre ?? throw new ArgumentNullException(nameof(genre));
             EducationLevel = educationLevel ?? throw new ArgumentNullException(nameof(educationLevel));
         }
 
-        public Person AddChild(Person child)
+        public Person AddFilliation(Person fatherOrMother)
         {
-            var person = new Person(
-                child.Name,
-                child.LastName,
-                child.Ethnicity,
-                child.Filiation,
-                child.EducationLevel);
+            Filiation.Add(fatherOrMother);
 
-            if (child.Children != null
-                && child.Children.Any())
-            {
-                person.Children = child.Children;
-            }
+            return this;
+        }
 
-            Children = Children.Concat(new[] { person });
+        public Person AddChild(Person sonOrDaughter)
+        {
+            Children.Add(sonOrDaughter);
 
             return this;
         }
