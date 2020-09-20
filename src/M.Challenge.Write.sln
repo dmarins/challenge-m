@@ -15,6 +15,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FBC66232
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "M.Challenge.Write.UnitTests", "M.Challenge.Write.UnitTests\M.Challenge.Write.UnitTests.csproj", "{212E0A87-8F68-44E8-A597-E9621117C270}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Items", "Items", "{D64B9839-5138-4735-8D46-E67F34F043C5}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		M.Challenge.Write.Api\Dockerfile = M.Challenge.Write.Api\Dockerfile
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
