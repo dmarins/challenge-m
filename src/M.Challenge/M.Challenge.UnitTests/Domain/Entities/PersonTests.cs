@@ -60,6 +60,7 @@ namespace M.Challenge.UnitTests.Domain.Entities
                 .Should()
                 .BeEquivalentTo(originalChild,
                     config => config
+                        .Excluding(x => x.Id)
                         .Excluding(x => x.Filiation)
                         .Excluding(x => x.Children));
 
@@ -74,6 +75,7 @@ namespace M.Challenge.UnitTests.Domain.Entities
                 .Should()
                 .BeEquivalentTo(originalPerson,
                     config => config
+                        .Excluding(x => x.Id)
                         .Excluding(x => x.Filiation)
                         .Excluding(x => x.Children));
         }
@@ -101,6 +103,7 @@ namespace M.Challenge.UnitTests.Domain.Entities
                 .Should()
                 .BeEquivalentTo(originalPerson,
                     config => config
+                        .Excluding(x => x.Id)
                         .Excluding(x => x.Filiation)
                         .Excluding(x => x.Children));
 
@@ -115,6 +118,7 @@ namespace M.Challenge.UnitTests.Domain.Entities
                 .Should()
                 .BeEquivalentTo(originalChild,
                     config => config
+                        .Excluding(x => x.Id)
                         .Excluding(x => x.Filiation)
                         .Excluding(x => x.Children));
         }
@@ -143,7 +147,9 @@ namespace M.Challenge.UnitTests.Domain.Entities
             son.Filiation
                 .First()
                 .Should()
-                .BeEquivalentTo(firstOriginalParents);
+                .BeEquivalentTo(firstOriginalParents,
+                    config => config
+                        .Excluding(x => x.Id));
         }
 
         [Theory, AutoNSubstituteData]
@@ -168,7 +174,9 @@ namespace M.Challenge.UnitTests.Domain.Entities
             father.Children
                 .First()
                 .Should()
-                .BeEquivalentTo(firstOriginalChild);
+                .BeEquivalentTo(firstOriginalChild,
+                    config => config
+                        .Excluding(x => x.Id));
         }
 
         [Theory, AutoNSubstituteData]

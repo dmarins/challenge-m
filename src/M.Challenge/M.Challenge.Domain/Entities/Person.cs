@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 
 namespace M.Challenge.Domain.Entities
@@ -6,6 +8,9 @@ namespace M.Challenge.Domain.Entities
     [Serializable]
     public class Person
     {
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public int Id { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
         public string Ethnicity { get; set; }
