@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace M.Challenge.Domain.Entities
 {
+    [ExcludeFromCodeCoverage]
     public class ApiKey
     {
         public int Id { get; }

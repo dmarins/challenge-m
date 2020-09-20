@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -104,6 +105,7 @@ namespace M.Challenge.Api.Infrastructure.Middlewares
         }
     }
 
+    [ExcludeFromCodeCoverage]
     public static class HttpLoggingMiddlewareExtensions
     {
         public static IApplicationBuilder UseHttpLoggingMiddleware(this IApplicationBuilder builder)

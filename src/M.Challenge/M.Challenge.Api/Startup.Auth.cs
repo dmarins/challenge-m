@@ -5,6 +5,7 @@ using M.Challenge.Domain.Constants;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace M.Challenge.Api
 {
@@ -34,12 +35,14 @@ namespace M.Challenge.Api
         }
     }
 
+    [ExcludeFromCodeCoverage]
     public class ApiKeyAuthenticationOptions : AuthenticationSchemeOptions
     {
         public string Scheme => ApiKeyConstants.DefaultScheme;
         public string AuthenticationType => ApiKeyConstants.DefaultScheme;
     }
 
+    [ExcludeFromCodeCoverage]
     public static class AuthenticationBuilderExtensions
     {
         public static AuthenticationBuilder AddApiKeySupport(this AuthenticationBuilder authenticationBuilder, Action<ApiKeyAuthenticationOptions> options)

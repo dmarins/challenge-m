@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -57,6 +58,7 @@ namespace M.Challenge.Api.Infrastructure.Middlewares
         }
     }
 
+    [ExcludeFromCodeCoverage]
     public static class UnexpectedErrorHandlingMiddlewareExtensions
     {
         public static IApplicationBuilder UseUnexpectedErrorHandlingMiddleware(this IApplicationBuilder builder)

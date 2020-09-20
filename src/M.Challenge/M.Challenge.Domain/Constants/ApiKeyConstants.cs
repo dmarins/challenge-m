@@ -1,5 +1,8 @@
-﻿namespace M.Challenge.Domain.Constants
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace M.Challenge.Domain.Constants
 {
+    [ExcludeFromCodeCoverage]
     public static class ApiKeyConstants
     {
         public static string HeaderName => "X-Api-Key";
