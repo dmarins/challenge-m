@@ -1,7 +1,9 @@
 ﻿using M.Challenge.Domain.Constants;
+using System.Diagnostics.CodeAnalysis;
 
 namespace M.Challenge.Domain.Dtos
 {
+    [ExcludeFromCodeCoverage]
     public class ResultDto
     {
         public ReturnType ReturnType { get; set; }

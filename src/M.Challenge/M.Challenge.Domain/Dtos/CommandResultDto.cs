@@ -1,5 +1,8 @@
-﻿namespace M.Challenge.Domain.Dtos
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace M.Challenge.Domain.Dtos
 {
+    [ExcludeFromCodeCoverage]
     public class CommandResultDto : ResultDto
     {
         public CommandResultDto()
