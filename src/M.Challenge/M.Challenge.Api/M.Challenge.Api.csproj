@@ -14,10 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\M.Challenge.Domain\M.Challenge.Domain.csproj" />
     <ProjectReference Include="..\M.Challenge.Infrastructure\M.Challenge.Infrastructure.csproj" />
   </ItemGroup>

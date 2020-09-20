@@ -1,6 +1,7 @@
 ﻿using AutoFixture;
 using AutoFixture.AutoNSubstitute;
 using AutoFixture.Xunit2;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Linq;
 
 namespace M.Challenge.UnitTests.Config.AutoData
@@ -11,13 +12,18 @@ namespace M.Challenge.UnitTests.Config.AutoData
         {
             var fixture = new Fixture();
 
-            fixture.Behaviors
+            fixture
+                .Behaviors
                 .Add(new OmitOnRecursionBehavior());
 
-            fixture.Behaviors
+            fixture
+                .Behaviors
                 .OfType<ThrowingRecursionBehavior>()
                 .ToList()
                 .ForEach(b => fixture.Behaviors.Remove(b));
+
+            fixture
+                .Customize<BindingInfo>(c => c.OmitAutoProperties());
 
             return fixture.Customize(new AutoNSubstituteCustomization());
         })
