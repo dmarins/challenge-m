@@ -651,3 +651,4 @@ obj/
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,csharp,dotnetcore,aspnetcore
 /src/M.Challenge/M.Challenge.Api/Properties/launchSettings.json
+/src/M.Challenge.Write.Api/Properties/launchSettings.json
