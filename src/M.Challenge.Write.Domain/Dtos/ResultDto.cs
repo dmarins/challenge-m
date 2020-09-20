@@ -10,13 +10,6 @@ namespace M.Challenge.Write.Domain.Dtos
         public object Data { get; set; }
         public string Message { get; set; }
 
-        public ResultDto Success(object data = null)
-        {
-            ReturnType = ReturnType.Success;
-            Data = data;
-            return this;
-        }
-
         public ResultDto Fail()
         {
             ReturnType = ReturnType.Fail;
@@ -35,7 +28,6 @@ namespace M.Challenge.Write.Domain.Dtos
     public enum ReturnType
     {
         Undefined,
-        Success,
         Fail,
         InvalidContract,
         Created

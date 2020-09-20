@@ -13,6 +13,10 @@ namespace M.Challenge.Write.UnitTests.Api.Infrastructure.CompositionRoot
         public CompositionRootFixture()
         {
             var configuration = Substitute.For<IConfigurationRoot>();
+
+            configuration.GetConnectionString("DefaultConnection").Returns("mongodb+srv://dmarins:3vqxcE3FtUkuJdRm@cluster0.qvogf.gcp.mongodb.net/DemographicCensus?retryWrites=true&w=majority");
+            configuration.GetConnectionString("DatabaseName").Returns("DemographicCensus");
+
             var services = new ServiceCollection();
             var startup = new Startup(configuration);
 

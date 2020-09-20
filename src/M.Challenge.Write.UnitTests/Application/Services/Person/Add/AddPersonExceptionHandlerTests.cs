@@ -14,16 +14,16 @@ namespace M.Challenge.Write.UnitTests.Application.Services.Person.Add
     public class AddPersonExceptionHandlerTests
     {
         [Theory, AutoNSubstituteData]
-        public void GuardandoOConstrutor(GuardClauseAssertion assertion)
+        public void Sut_ShouldHaveGuardClauses(GuardClauseAssertion assertion)
         {
             assertion.Verify(typeof(AddPersonExceptionHandler).GetConstructors());
         }
 
         [Theory, AutoNSubstituteData]
-        public async Task QuandoNaoHaExcecao(AddPersonExceptionHandler sut,
+        public async Task Sut_WhenDecoratedReturnsCreated_ReturnsCreated(AddPersonExceptionHandler sut,
             PersonCrudDto dto)
         {
-            var commandResultDto = new CommandResultDto().Success();
+            var commandResultDto = new CommandResultDto().Created();
 
             sut.Decorated
                 .Process(Arg.Any<PersonCrudDto>())
@@ -33,7 +33,7 @@ namespace M.Challenge.Write.UnitTests.Application.Services.Person.Add
 
             result.Data.Should().BeNull();
             result.Message.Should().BeNull();
-            result.ReturnType.Should().Be(ReturnType.Success);
+            result.ReturnType.Should().Be(ReturnType.Created);
 
             sut.Logger
                 .Received(0)
@@ -41,7 +41,7 @@ namespace M.Challenge.Write.UnitTests.Application.Services.Person.Add
         }
 
         [Theory, AutoNSubstituteData]
-        public async Task QuandoHaExcecao(AddPersonExceptionHandler sut,
+        public async Task Sut_WhenDecoratedThrowsException_ReturnsFail(AddPersonExceptionHandler sut,
             PersonCrudDto dto)
         {
             var commandResultDto = new CommandResultDto().Fail();

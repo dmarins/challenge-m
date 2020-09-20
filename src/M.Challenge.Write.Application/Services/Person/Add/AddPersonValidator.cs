@@ -30,7 +30,7 @@ namespace M.Challenge.Write.Application.Services.Person.Add
 
             if (personStored != null)
             {
-                Logger.Warning("Uma pessoa já foi cadastrada com o mesmo nome e sobrenome.");
+                Logger.Warning("Já existe um cadastro para esse mesmo nome e sobrenome.");
                 return new CommandResultDto().InvalidContract();
             }
 
