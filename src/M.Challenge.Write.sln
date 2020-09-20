@@ -18,6 +18,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Items", "Items", "{D64B9839-5138-4735-8D46-E67F34F043C5}"
 	ProjectSection(SolutionItems) = preProject
 		.dockerignore = .dockerignore
+		Dockerfile = Dockerfile
+		Tests.runsettings = Tests.runsettings
 	EndProjectSection
 EndProject
 Global
