@@ -1,6 +1,8 @@
 ﻿using M.Challenge.Domain.Dtos;
 using M.Challenge.Domain.Logger;
+using M.Challenge.Domain.Repositories.Person;
 using M.Challenge.Domain.Services.Person;
+using System;
 using System.Threading.Tasks;
 
 namespace M.Challenge.Application.Services.Person.Add
@@ -8,19 +10,29 @@ namespace M.Challenge.Application.Services.Person.Add
     public class AddPersonValidator : IAddPersonService
     {
         public ILogger Logger { get; }
+        public IPersonReadingRepository PersonReadingRepository { get; }
         public IAddPersonService Decorated { get; }
 
-        public AddPersonValidator(ILogger logger, IAddPersonService decorated)
+        public AddPersonValidator(
+            ILogger logger,
+            IPersonReadingRepository personReadingRepository,
+            IAddPersonService decorated)
         {
-            Logger = logger ?? throw new System.ArgumentNullException(nameof(logger));
-            Decorated = decorated ?? throw new System.ArgumentNullException(nameof(decorated));
+            Logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            PersonReadingRepository = personReadingRepository ?? throw new ArgumentNullException(nameof(personReadingRepository));
+            Decorated = decorated ?? throw new ArgumentNullException(nameof(decorated));
         }
 
         public async Task<ResultDto> Process(PersonCrudDto dto)
         {
-            // recuperar pessoa pelo nome e sobrenome
+            var personStored = await PersonReadingRepository
+                .GetBy(p => p.Name == dto.Name && p.LastName == dto.LastName);
 
-            // se já existe uma pessoa cadastrada, logar warning e retornar invalid contract
+            if (personStored != null)
+            {
+                Logger.Warning("Uma pessoa já foi cadastrada com o mesmo nome e sobrenome.");
+                return new CommandResultDto().InvalidContract();
+            }
 
             return await Decorated.Process(dto);
         }

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace M.Challenge.Infrastructure.Persistence.Config
+namespace M.Challenge.Domain.Persistence
 {
     public interface IUnitOfWork
     {

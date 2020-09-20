@@ -1,7 +1,8 @@
-﻿using System;
+﻿using M.Challenge.Domain.Persistence;
+using System;
 using System.Threading.Tasks;
 
-namespace M.Challenge.Infrastructure.Persistence.Config
+namespace M.Challenge.Infrastructure.Persistence
 {
     public class UnitOfWork : IUnitOfWork
     {

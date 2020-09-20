@@ -22,6 +22,10 @@ namespace M.Challenge.Api.Infrastructure.Response
                 {
                     StatusCode = (int)HttpStatusCode.BadRequest
                 },
+                ReturnType.Created => new ObjectResult(dto.Data)
+                {
+                    StatusCode = (int)HttpStatusCode.Created
+                },
                 _ => new ObjectResult(dto.Message)
                 {
                     StatusCode = (int)HttpStatusCode.BadRequest

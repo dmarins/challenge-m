@@ -1,5 +1,6 @@
 ﻿using Autofac;
-using M.Challenge.Infrastructure.Persistence.Config;
+using M.Challenge.Domain.Persistence;
+using M.Challenge.Infrastructure.Persistence;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 

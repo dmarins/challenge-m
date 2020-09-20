@@ -17,6 +17,9 @@ namespace M.Challenge.Api
             containerBuilder.RegisterModule(new LoggerModule());
             containerBuilder.RegisterModule(new AuthModule());
             containerBuilder.RegisterModule(new DbContextModule());
+            containerBuilder.RegisterModule(new RepositoriesModule());
+            containerBuilder.RegisterModule(new AddPersonServiceModule());
+            containerBuilder.RegisterModule(new ResponseModule());
 
             Container = containerBuilder.Build();
 

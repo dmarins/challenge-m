@@ -10,7 +10,7 @@ namespace M.Challenge.Domain.Entities
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
         public string Ethnicity { get; set; }
@@ -30,6 +30,9 @@ namespace M.Challenge.Domain.Entities
             Ethnicity = ethnicity ?? throw new ArgumentNullException(nameof(ethnicity));
             Genre = genre ?? throw new ArgumentNullException(nameof(genre));
             EducationLevel = educationLevel ?? throw new ArgumentNullException(nameof(educationLevel));
+
+            Filiation = new List<Person>();
+            Children = new List<Person>();
         }
 
         public Person AddFilliation(Person fatherOrMother)

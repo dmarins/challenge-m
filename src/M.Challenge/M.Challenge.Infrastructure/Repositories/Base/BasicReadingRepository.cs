@@ -1,5 +1,5 @@
 ﻿using M.Challenge.Domain.Repositories.Base;
-using M.Challenge.Infrastructure.Persistence.Config;
+using M.Challenge.Infrastructure.Persistence;
 using MongoDB.Driver;
 using System;
 using System.Linq.Expressions;

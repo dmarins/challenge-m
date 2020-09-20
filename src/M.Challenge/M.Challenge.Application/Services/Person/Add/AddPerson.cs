@@ -1,5 +1,7 @@
 ﻿using M.Challenge.Domain.Dtos;
 using M.Challenge.Domain.Logger;
+using M.Challenge.Domain.Persistence;
+using M.Challenge.Domain.Repositories.Person;
 using M.Challenge.Domain.Services.Person;
 using System;
 using System.Threading.Tasks;
@@ -9,10 +11,16 @@ namespace M.Challenge.Application.Services.Person.Add
     public class AddPerson : IAddPersonService
     {
         public ILogger Logger { get; }
+        public IPersonWritingRepository PersonWritingRepository { get; }
+        public IUnitOfWork UnitOfWork { get; }
 
-        public AddPerson(ILogger logger)
+        public AddPerson(ILogger logger,
+            IPersonWritingRepository personWritingRepository,
+            IUnitOfWork unitOfWork)
         {
             Logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            PersonWritingRepository = personWritingRepository ?? throw new ArgumentNullException(nameof(personWritingRepository));
+            UnitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         public async Task<ResultDto> Process(PersonCrudDto dto)
@@ -34,9 +42,11 @@ namespace M.Challenge.Application.Services.Person.Add
                 person.AddChild(child);
             }
 
-            // persistir a pessoa
+            var personStored = await PersonWritingRepository.Add(person);
 
-            return new CommandResultDto().Created();
+            await UnitOfWork.Commit();
+
+            return new CommandResultDto().Created(personStored);
         }
     }
 }

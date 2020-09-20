@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace M.Challenge.Infrastructure.Persistence.Config
+namespace M.Challenge.Infrastructure.Persistence
 {
     public class DbContext : IDbContext
     {
@@ -18,6 +18,8 @@ namespace M.Challenge.Infrastructure.Persistence.Config
         {
             MongoDatabase = mongoDatabase ?? throw new ArgumentNullException(nameof(mongoDatabase));
             MongoClient = mongoClient ?? throw new ArgumentNullException(nameof(mongoClient));
+
+            _commands = new List<Func<Task>>();
         }
 
         public void AddCommand(Func<Task> func)

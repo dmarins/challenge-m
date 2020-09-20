@@ -1,5 +1,5 @@
 ﻿using M.Challenge.Domain.Repositories.Base;
-using M.Challenge.Infrastructure.Persistence.Config;
+using M.Challenge.Infrastructure.Persistence;
 using MongoDB.Driver;
 using System;
 using System.Threading.Tasks;
@@ -14,6 +14,7 @@ namespace M.Challenge.Infrastructure.Repositories.Base
         public BasicWritingRepository(IDbContext dbContext)
         {
             DbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+
             DbSet = dbContext.GetCollection<T>(nameof(T));
         }
 

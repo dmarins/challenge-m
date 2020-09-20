@@ -23,6 +23,7 @@ namespace M.Challenge.Api
 
         public virtual IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            ConfigureJson(services);
             ConfigureAuthentication(services);
             ConfigureAuthorization(services);
 

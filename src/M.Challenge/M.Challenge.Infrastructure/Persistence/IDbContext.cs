@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace M.Challenge.Infrastructure.Persistence.Config
+namespace M.Challenge.Infrastructure.Persistence
 {
     public interface IDbContext
     {
