@@ -26,6 +26,7 @@ namespace M.Challenge.Api
             ConfigureJson(services);
             ConfigureAuthentication(services);
             ConfigureAuthorization(services);
+            ConfigureHealthChecks(services, Configuration);
 
             return RegisterDependencies(services);
         }
@@ -42,6 +43,7 @@ namespace M.Challenge.Api
                 app.UseHttpsRedirection();
             }
 
+            app.UseHealthChecks("/status");
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
