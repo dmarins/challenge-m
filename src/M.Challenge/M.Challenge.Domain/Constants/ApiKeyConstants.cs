@@ -5,7 +5,7 @@ namespace M.Challenge.Domain.Constants
     [ExcludeFromCodeCoverage]
     public static class ApiKeyConstants
     {
-        public static string HeaderName => "X-Api-Key";
-        public static string DefaultScheme => "API Key";
+        public const string HeaderName = "X-Api-Key";
+        public const string DefaultScheme = "API Key";
     }
 }

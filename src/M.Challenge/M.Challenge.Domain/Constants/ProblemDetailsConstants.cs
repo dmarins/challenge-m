@@ -5,6 +5,6 @@ namespace M.Challenge.Domain.Constants
     [ExcludeFromCodeCoverage]
     public static class ProblemDetailsConstants
     {
-        public static string ContentType => "application/problem+json";
+        public const string ContentType = "application/problem+json";
     }
 }
