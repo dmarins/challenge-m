@@ -23,7 +23,7 @@ Serviço que simula o cadastramento do Censo Demográfico de um região.
 - Autenticação por X-API-KEY
 - Log dos requests e responses
 - Tratamento para exceções inesperadas
-- Pronta para ser dockerizada
+- "Dockerizada"
 
 # Executando a aplicação localmente
 
