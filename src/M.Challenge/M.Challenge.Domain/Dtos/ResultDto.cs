@@ -37,6 +37,7 @@ namespace M.Challenge.Domain.Dtos
         Undefined,
         Success,
         Fail,
-        InvalidContract
+        InvalidContract,
+        Created
     }
 }

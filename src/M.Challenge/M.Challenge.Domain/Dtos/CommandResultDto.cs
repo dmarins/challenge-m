@@ -15,5 +15,12 @@ namespace M.Challenge.Domain.Dtos
             Data = data;
             Message = message;
         }
+
+        public CommandResultDto Created(object data = null)
+        {
+            ReturnType = ReturnType.Created;
+            Data = data;
+            return this;
+        }
     }
 }

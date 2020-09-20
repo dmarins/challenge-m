@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\M.Challenge.Api\M.Challenge.Api.csproj" />
+    <ProjectReference Include="..\M.Challenge.Application\M.Challenge.Application.csproj" />
     <ProjectReference Include="..\M.Challenge.Domain\M.Challenge.Domain.csproj" />
   </ItemGroup>
 
