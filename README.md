@@ -20,7 +20,7 @@ API que simula o cadastramento do Censo Demográfico de uma região.
 - O desafio foi fragmentado em 2 APIs (escrita e leitura) para reduzir a complexidade, simplificar a manutebilidade, permitir maior escala e tolerar falhas
 - Code Coverage em 86%
 - HealthCheck para conexão com a base de dados
-- Autenticação por X-API-KEY
+- Autenticação por X-API-KEY com roles
 - Log dos requests e responses
 - Tratamento para exceções inesperadas
 - "Dockerizada"
