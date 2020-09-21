@@ -1,6 +1,6 @@
 # Challenge M Write
 
-Serviço que simula o cadastramento do Censo Demográfico de um região.
+API que simula o cadastramento do Censo Demográfico de uma região.
 
 # Tecnologias Usadas
 
