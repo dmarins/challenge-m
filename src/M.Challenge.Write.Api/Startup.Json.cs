@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json.Serialization;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace M.Challenge.Write.Api
 {
@@ -11,12 +9,7 @@ namespace M.Challenge.Write.Api
 
             services
                 .AddControllers()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
-                .AddNewtonsoftJson(opt =>
-                {
-                    opt.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
-                    opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-                });
+                .AddNewtonsoftJson();
         }
     }
 }
