@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 namespace M.Challenge.Write.Domain.Entities
 {
-    [Serializable]
     public class Person
     {
         [BsonId]
@@ -35,6 +34,8 @@ namespace M.Challenge.Write.Domain.Entities
 
         public Person AddFilliation(Person fatherOrMother)
         {
+            fatherOrMother.Id = Guid.NewGuid().ToString();
+
             Filiation.Add(fatherOrMother);
 
             return this;
@@ -42,6 +43,8 @@ namespace M.Challenge.Write.Domain.Entities
 
         public Person AddChild(Person sonOrDaughter)
         {
+            sonOrDaughter.Id = Guid.NewGuid().ToString();
+
             Children.Add(sonOrDaughter);
 
             return this;
