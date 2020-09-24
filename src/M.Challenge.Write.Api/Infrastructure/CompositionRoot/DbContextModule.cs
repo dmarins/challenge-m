@@ -34,12 +34,12 @@ namespace M.Challenge.Write.Api.Infrastructure.CompositionRoot
             builder
                 .RegisterType<DbContext>()
                 .As<IDbContext>()
-                .SingleInstance();
+                .InstancePerLifetimeScope();
 
             builder
                 .RegisterType<UnitOfWork>()
                 .As<IUnitOfWork>()
-                .SingleInstance();
+                .InstancePerLifetimeScope();
         }
     }
 }

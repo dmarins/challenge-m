@@ -32,9 +32,9 @@ namespace M.Challenge.Write.Application.Services.Person.Add
                 dto.Genre,
                 dto.EducationLevel);
 
-            foreach (var filiation in dto.Filiation)
+            for (int i = 0; i < 2; i++)
             {
-                person.AddFilliation(filiation);
+                person.AddFilliation(dto.Filiation[i]);
             }
 
             foreach (var child in dto.Children)
